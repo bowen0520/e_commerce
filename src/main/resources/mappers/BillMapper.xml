@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ec.wallet.mapper.BillMapper">
+    <insert id="insertBill">
+        insert into bill values(null, #{userId}, #{transaction}, #{note});
+    </insert>
+    <select id="searchBills" resultType="com.ec.wallet.dao.Bill">
+    	select * from bill where userId=#{userId} order by billId Desc;
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ec.wallet.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into user values(#{userId}, #{name}, #{balance});
+    </insert>
+    <select id="searchByName" resultType="com.ec.wallet.dao.User">
+    	select * from user where name=#{name};
+    </select>
+    <select id="searchByUserId" resultType="com.ec.wallet.dao.User">
+    	select * from user where userId=#{userId};
+    </select>
+    <update id="changeBalance">
+    	update user set balance=#{balance} where userId=#{userId};
+    </update>
+</mapper>
